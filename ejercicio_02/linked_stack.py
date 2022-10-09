@@ -1,5 +1,6 @@
 from typing import Any, Union
-from list_node import ListNode
+
+from list_node.list_node import ListNode
 
 
 class LinkedStack:

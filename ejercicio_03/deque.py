@@ -1,15 +1,16 @@
 from typing import Any, Union
-from list_node import ListNode
 from deque_abstract import DequeAbstract
 from collections import deque
 from io import UnsupportedOperation
+
+from list_node.list_double_node import ListDoubleNode
 
 
 class Deque(DequeAbstract):
 
     def __init__(self):
-        self._first: Union[ListNode, None] = None
-        self._last: Union[ListNode, None] = None
+        self._first: Union[ListDoubleNode, None] = None
+        self._last: Union[ListDoubleNode, None] = None
         self._size: int = 0
 
     def __len__(self) -> int:
@@ -40,7 +41,7 @@ class Deque(DequeAbstract):
         return self._last.element
 
     def add_first(self, element: Any) -> None:
-        new_first = ListNode(element, next=self._first)
+        new_first = ListDoubleNode(element, next=self._first)
         if self.is_empty():
             self._last = new_first
         else:
@@ -49,7 +50,7 @@ class Deque(DequeAbstract):
         self._size += 1
 
     def add_last(self, element: Any) -> None:
-        new_last = ListNode(element, previous=self._last)
+        new_last = ListDoubleNode(element, previous=self._last)
         if self.is_empty():
             self._first = new_last
         else:

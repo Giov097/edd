@@ -1,7 +1,7 @@
 from io import UnsupportedOperation
 from typing import Any, Iterator
 from double_linked_list_abstract import DoubleLinkedListAbstract
-from list_node import ListNode
+from list_node.list_double_node import ListDoubleNode
 
 
 class DoubleLinkedList(DoubleLinkedListAbstract):
@@ -10,8 +10,8 @@ class DoubleLinkedList(DoubleLinkedListAbstract):
     _OUT_OF_BOUNDS_EXCEPTION = "Índice fuera de rango. No se puede continuar."
 
     def __init__(self):
-        self._header: ListNode = ListNode(None)
-        self._footer: ListNode = ListNode(None)
+        self._header: ListDoubleNode = ListDoubleNode(None)
+        self._footer: ListDoubleNode = ListDoubleNode(None)
         self._size: int = 0
 
     def __len__(self) -> int:
@@ -85,7 +85,7 @@ class DoubleLinkedList(DoubleLinkedListAbstract):
         return self._size == 0
 
     def append(self, elem: Any) -> None:
-        nuevo_nodo = ListNode(elem, previous=self._footer)
+        nuevo_nodo = ListDoubleNode(elem, previous=self._footer)
         if self.is_empty():
             self._header, self._footer = nuevo_nodo, nuevo_nodo
         else:

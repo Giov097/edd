@@ -1,4 +1,3 @@
-from ctypes.wintypes import DWORD
 from deque import Deque
 import unittest
 
